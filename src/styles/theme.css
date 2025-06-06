@@ -1,0 +1,24 @@
+:root {
+  /* Color Palette */
+  --primary: #8B5A2B;    /* Earthy Brown */
+  --primary-light: #B38867;
+  --secondary: #4A6B3D;  /* Forest Green */
+  --accent: #D4A59A;     /* Clay Pink */
+  --background: #F5F5DC; /* Cream */
+  --text: #333333;       /* Dark Gray */
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+/* Apply to Tailwind (if using) */
+@layer base {
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+  }
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+  }
+}
