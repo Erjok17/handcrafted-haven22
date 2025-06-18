@@ -23,8 +23,8 @@ function HeroComponent() {
           height={667}
           priority
           className="hero-component__right__hero-image"
-          src="/hero-image.jpg"
-          alt="A duffle bag, dopp kit and ceramic mug sit atop a wood table in front of a wall of art prints."
+          src="/images/hero-image.webp"
+          alt="A woodslice and a bird scene from Naghshe Sang."
         />
       </div>
     </div>
