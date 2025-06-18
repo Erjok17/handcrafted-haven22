@@ -1,24 +1,54 @@
-import Navbar from '@/components/Navbar';
-import ProductCard from '@/components/ProductCard';
 
-export default function Home() {
-  const sampleProduct = {
-    id: '1',
-    name: 'Handmade Ceramic Mug',
-    price: 25.99,
-    description: 'Unique artisan mug with glazed finish',
-    imageUrl: '/images/mug.jpg',
-  };
+import Image from "next/image";
+import styles from "./page.module.css";
+import HeroCard from "./ui/HeroCard";
+import ProductCard from "./ui/ProductCard";
+import AboutUs from "./ui/AboutUs";
+import Search from "./ui/Search";
+
+import { Suspense } from "react";
+
+import "./page.css";
+import { fetchFilteredProductsWithRating } from "@/app/lib/data";
+
+export default async function Home(props: {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+}) {
+  const searchParams = props.searchParams ? await props.searchParams : {};
+  const query = searchParams?.query || "";
+  const products = (await fetchFilteredProductsWithRating(query)) || [];
 
   return (
-    <main>
-      <Navbar />
-      <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold my-8">Featured Products</h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <ProductCard product={sampleProduct} />
-        </div>
-      </div>
-    </main>
+    <div className={styles.page}>
+      
+      <main className={styles.main}>
+        <HeroCard />
+        <section className="product-section">
+          <h2>Products</h2>
+          <Search placeholder="Search invoices..." />
+
+          <Suspense fallback={<div>Loading...</div>}>
+            <div className="products">
+              {products.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  id={product.id}
+                  title={product.title}
+                  description={product.description}
+                  price={product.price}
+                  rating={product.average_rating}
+                  photoSrc={product.image_url}
+                />
+              ))}
+            </div>
+            {/* <Products query={query} /> */}
+          </Suspense>
+        </section>
+        <AboutUs />
+      </main>
+    </div>
   );
 }
