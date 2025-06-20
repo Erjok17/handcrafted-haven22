@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Handcrafted Haven",
     description: "Discover, buy, and sell unique handmade items at Handcrafted Haven.",
-    url: "https://handcrafted-haven-erjok17.vercel.app/",
+    url: "https://handcrafted-haven22.vercel.app/",
     siteName: "Handcrafted Haven",
     images: [
       {
