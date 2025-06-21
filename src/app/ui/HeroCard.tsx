@@ -7,13 +7,13 @@ function HeroComponent() {
       <div className="hero-component__left">
         <div className="hero-component__left__wrapper">
           <p className="hero-component__left__wrapper__main-text">
-            Save on your faves
+            Save big on your go-to picks
           </p>
           <p className="hero-component__left__wrapper__sub-text">
-            Special items at special prices
+            Cool stuff, cooler prices
           </p>
           <a className="hero-component__left__wrapper__call-to-action" href="">
-            Make your day
+            Treat yourself today
           </a>
         </div>
       </div>
